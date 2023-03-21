@@ -1,19 +1,26 @@
 import random
 random_number = random.randint(1, 7)
-random_number2 = random.randint(1, 7)
-print(random_number)
-print(random_number2) #I am inserting another random.randint function so I may use the random mondule twice in this program.
+random_number2 = random.randint(1, 7) #I am inserting another random.randint function so I may use the random mondule twice in this program.
 print("WELCOME TO RANDOM FOOD RECIPE GENERATOR")
 
 #I defined a function here because I will need to call this same code again when generating the second recipe.
-def generateRecipe(num):
-  decision = input(f"Are you ready to generate the {num} random recipe? ")
-  if decision == "Yes" or decision == "yes":
-    print("\nGreat! Here is the first recipe.")
-  else:
-    print("\nThat's too bad. Maybe next time.")
-    exit("Participant did not want to generate the recipe.")
-# program will end here if anything other than "Yes" or "yes" is inputted.
+def generateRecipe(action):
+  while True:
+    decision = input(f"Are you ready to generate the {action} random recipe? ")
+    decision = decision.lower()
+    if decision == "yes" or decision == "yeah" or decision == "yup" or decision == "sure":
+      print(f"\nGreat! Here is the {action} recipe.")
+      break
+    elif decision == "no" or decision == "nope" or decision == "nah":
+      print("\nThat's too bad. Maybe next time.")
+      exit("Participant did not want to generate the recipe.")
+      # program will end here if answer is "no, nope, or nah", is inputted.
+    else:
+      print("\nYou've made an error")
+      print("To continue, enter yes, yeah, yup, or sure.")
+      print("To end the program, enter no, nope, or nah.")
+      continue
+
 generateRecipe("first")
 
 #All recipes all put into a dictionary; the key being the name of the recipe, as well as the value being the ingredients.
@@ -54,10 +61,9 @@ def randomRecipe(num):
 #I call my defined function here with the parameter being one of the random number so that a recipe will generate randomly.
 randomRecipe(random_number)
 
-print("\nOk, here is the second recipe:")
 generateRecipe("second")
+print("\nOk, here is the second recipe:")
 
 #I use the same defined function to call a random number again, but using the random number variable that saved the second random.randit function
 randomRecipe(random_number2)
 print("\nYour two recipes have been randomly genrerated. Enjoy!")
-
