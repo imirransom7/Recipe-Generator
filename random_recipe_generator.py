@@ -44,7 +44,7 @@ print("\nHere is your first random recipe:")
 #I defined a function to pretty much tag the recipes with a number, so when a random number is generated, then the recipe corresponding to that number will print
 def randomRecipe(num):
   if num == 1:
-    recipeList(tuscanChicken) #I am calling my defined function for the dictionaries by usinmg the dictionaries as a parameter when a random number is generated.
+    recipeList(tuscanChicken) #I am calling my defined function for the recipes that are dictionaries and using them as a parameter for when a random number is generated.
   elif num == 2:
     recipeList(teryakiBowl)
   elif num == 3:
